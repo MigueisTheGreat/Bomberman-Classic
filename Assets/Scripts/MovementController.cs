@@ -1,13 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MovementController : MonoBehaviour
 {
-    public Rigidbody2D rigidbody { get; private set; }
-    public float speed = 5f;
-
+    public new Rigidbody2D rigidbody { get; private set; }
     private Vector2 direction = Vector2.down;
+    public float speed = 5f;
 
     public KeyCode inputUp = KeyCode.W;
     public KeyCode inputDown = KeyCode.S;
@@ -18,7 +18,10 @@ public class MovementController : MonoBehaviour
     public AnimatedSpriteRenderer spriteRendererDown;
     public AnimatedSpriteRenderer spriteRendererLeft;
     public AnimatedSpriteRenderer spriteRendererRight;
+    public AnimatedSpriteRenderer spriteRendererDeath;
     private AnimatedSpriteRenderer activeSpriteRenderer;
+
+    
 
     private void Awake()
     {
@@ -71,5 +74,33 @@ public class MovementController : MonoBehaviour
         activeSpriteRenderer = spriteRenderer;
         activeSpriteRenderer.idle = direction == Vector2.zero;
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D otherCollider)
+    {
+        // Instead of "CompareToTag" we use layer comparison, not due to exclusivity, but to diversify code methods
+        if (otherCollider.gameObject.layer == LayerMask.NameToLayer("Explosion"))
+        {
+            DeathSequence();
+        }
+    }
+
+    private void DeathSequence()
+    {
+        enabled = false;
+        GetComponent<BombController>().enabled = false;
+
+        spriteRendererUp.enabled = false;
+        spriteRendererDown.enabled=false;
+        spriteRendererLeft.enabled=false;
+        spriteRendererRight.enabled=false;
+        spriteRendererDeath.enabled=true;
+
+        Invoke(nameof(OnDeathSequenceEnded), 1.25f);
+    }
+
+    private void OnDeathSequenceEnded()
+    {
+        gameObject.SetActive(false);
     }
 }
