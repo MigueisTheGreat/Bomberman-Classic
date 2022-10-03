@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 429995629}
   - component: {fileID: 429995628}
   - component: {fileID: 429995630}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Destructibles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1292,7 +1292,7 @@ GameObject:
   - component: {fileID: 842067130}
   - component: {fileID: 842067129}
   - component: {fileID: 842067131}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Non-Destructibles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3295,13 +3295,13 @@ Tilemap:
   - first: {x: -8, y: 3, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 1
-      m_TileSpriteIndex: 1
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 1
+      m_AllTileFlags: 1073741825
   - first: {x: -7, y: 3, z: 0}
     second:
       serializedVersion: 2
@@ -3844,16 +3844,16 @@ Tilemap:
       m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 99
+  - m_RefCount: 100
     m_Data: {fileID: 11400000, guid: 3858895ac0cfa224c84f04b18d7ecc69, type: 2}
-  - m_RefCount: 92
+  - m_RefCount: 91
     m_Data: {fileID: 11400000, guid: d14f8874987295147a91e3418651f877, type: 2}
   - m_RefCount: 56
     m_Data: {fileID: 11400000, guid: e4476971c0929844e9be32ea178e8e42, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 99
+  - m_RefCount: 100
     m_Data: {fileID: 21300000, guid: fca57bb148b9bd34783adea02f578a95, type: 3}
-  - m_RefCount: 92
+  - m_RefCount: 91
     m_Data: {fileID: 21300000, guid: 5422b6ce89a3ce44fa7b1819bf04ca02, type: 3}
   - m_RefCount: 56
     m_Data: {fileID: 21300000, guid: 4f43bdf341c65eb438a98cbc3b92856e, type: 3}
@@ -4035,7 +4035,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1390444476}
   - component: {fileID: 1390444475}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Stage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4273,6 +4273,7 @@ GameObject:
   - component: {fileID: 2119458345}
   - component: {fileID: 2119458344}
   - component: {fileID: 2119458343}
+  - component: {fileID: 2119458347}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -4297,6 +4298,10 @@ MonoBehaviour:
   inputDown: 115
   inputLeft: 97
   inputRight: 100
+  spriteRendererUp: {fileID: 702133138}
+  spriteRendererDown: {fileID: 1973450358}
+  spriteRendererLeft: {fileID: 82285598}
+  spriteRendererRight: {fileID: 1009397735}
 --- !u!58 &2119458344
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4353,3 +4358,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2119458347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119458342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47bc166a3428d7240bb7767abdf7fc44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputKey: 32
+  bombPrefab: {fileID: 7636512591490985958, guid: 6775a441f67dee44b87ffccd3bd78a1a, type: 3}
+  bombFuseTime: 3
+  bombAmount: 1
+  explosionsPrefab: {fileID: 7269539193582010483, guid: 84621345aa604ab469f0114a5d66bdc1, type: 3}
+  explosionLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  explosionDuration: 1
+  explosionRadius: 1
