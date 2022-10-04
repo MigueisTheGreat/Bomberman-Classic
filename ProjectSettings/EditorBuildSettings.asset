@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Bomberman Classic.unity
+    path: Assets/Game/Scenes/Bomberman Classic.unity
     guid: db3e2fbd614dee94bbb7b73a60240cca
   m_configObjects: {}
